@@ -1,4 +1,4 @@
-class Person(val name: String, var age: Int, var isMarried: Boolean)
+data class Person(val name: String, var age: Int, var isMarried: Boolean)
 
 class Rectangle(val height: Int, val width: Int) {
     val isSquare: Boolean
@@ -8,13 +8,16 @@ class Rectangle(val height: Int, val width: Int) {
 }
 
 fun main() {
-    val person = Person("James", 32, true);
+    val persons = listOf(
+        Person("James", 32, true),
+        Person("Kameron", 42, true),
+        Person("Sphilberg", 52, true),
+        Person("Philip", 12, true)
+    )
 
-//    println(person.name)
-//    println(person.age)
-//    println(person.isMarried)
-
-    val rectangle = Rectangle(4, 4)
-    println(rectangle.isSquare)
+    println(persons.maxByOrNull { person: Person -> person.age })
+    println(persons.maxByOrNull { person -> person.age })
+    println(persons.maxByOrNull { it.age })
+    println(persons.maxByOrNull(Person::age))
 }
 
