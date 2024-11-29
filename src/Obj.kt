@@ -8,7 +8,7 @@ object NumberUtils{
     }
 }
 
-class Child2(val subName:String, val familyName:String, val age:Int) {
+data class Child2(val subName:String, val familyName:String, val age:Int) {
 
     companion object {
         const val MAX_CHILDREN_COUNT = 4
